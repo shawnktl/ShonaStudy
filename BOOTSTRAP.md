@@ -138,7 +138,36 @@ An agent can regenerate this from the current state of topics.md.
 
 ---
 
-## 8. FUTURE ENHANCEMENTS
+## 8. SCRIPTS
+
+Three scripts in `scripts/` to keep the study system running:
+
+### scripts/update_schedule.py
+Regenerates `study/schedule.md` with guilt-free suggestions ranked by what would benefit most from review. No deadlines, no "overdue" — just "if you have 10 minutes, here's what's most valuable."
+
+```
+python3 scripts/update_schedule.py
+```
+
+### scripts/progress_report.py
+Appends a dated snapshot to `review/progress.md` with per-category breakdown and comparison to the last snapshot. Run periodically to track improvement.
+
+```
+python3 scripts/progress_report.py
+```
+
+### scripts/generate_quiz.py
+Generates quiz questions targeting low-confidence topics. Outputs markdown stubs that an agent can enhance with real content.
+
+```
+python3 scripts/generate_quiz.py           # 10 questions to stdout
+python3 scripts/generate_quiz.py -n 20     # 20 questions
+python3 scripts/generate_quiz.py -o quiz.md  # Write to file
+```
+
+---
+
+## 9. FUTURE ENHANCEMENTS
 
 - Question bank integration (import existing questions, track per-question performance)
 - Case library linking (reference specific imaging cases per topic)
